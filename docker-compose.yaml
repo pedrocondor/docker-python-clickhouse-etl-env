@@ -1,0 +1,20 @@
+version: '3'
+services:
+    db:
+        container_name: clickhouse-local
+        ports:
+            - '8123:8123'
+            - '9000:9000'
+        volumes:
+            - 'C:\temp\db\:/var/lib/clickhouse/data'
+        image: yandex/clickhouse-server
+    python:
+        container_name: python-oec
+        stdin_open: true  # same as -i
+        tty: true # same as -t
+        volumes:
+            - 'C:\temp\home\:/home'
+        image: pedrocondor/pypy-pandas
+        depends_on:
+            - db
+    
