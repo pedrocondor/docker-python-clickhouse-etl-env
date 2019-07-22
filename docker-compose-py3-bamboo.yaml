@@ -14,7 +14,7 @@ services:
         tty: true # same as -t
         volumes:
             - './python/:/home'
-        image: pedrocondor/py3-bamboo
+        image: pedrocondor/py3-bamboo-0.22
         depends_on:
             - db
     
